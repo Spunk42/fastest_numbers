@@ -325,11 +325,14 @@ def numbers_out(number_names, file_name, *args): # modified to be able to write 
             line = str(l["value"]) + "," + l["names"][-1] + "," + l["equations"][-1] + ","
             for ar in args: # there should only be one extra argument (the silly version) for now, just failsafe-ing this a bit
                 if l["value"] != ar[index]["value"]: # if values do not match (this should not happen!)
-                    raise ValueError("Values do not match at index " + str(index) + ": "
+                    print("Values do not match at index " + str(index) + ": "
                                      + str(l["value"]) + " vs " + str(ar[index]["value"]))
+                    line += "Values do not match: " + str(ar[index]["value"]) + ","
+                    break
                 if l["syllables"][-1] != ar[index]["syllables"][-1]: # if syllable lengths do not match (this should not happen!)
-                    raise ValueError("Syllables do not match at " + str(l["value"]) + ": "
+                    print("Syllables do not match at " + str(l["value"]) + ": "
                                      + l["names"][-1] + " vs " + ar[index]["names"][-1])
+                    line += "Syllables do not match: "
                 line += ar[index]["names"][-1] + "," + ar[index]["equations"][-1] + ","
             line += str(l["syllables"][-1])  +"\n"
             f.write(line)
