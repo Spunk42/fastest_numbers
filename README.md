@@ -24,3 +24,11 @@ During the step of finding names with N syllables, we attempt to construct numbe
 A lot of the complexity comes from order of operations. We assume that parentheses cannot be said, so "twelve times nine plus one" will evaluate to 109, not 120. For each number we store the shortest name at each level: original, exponent and fraction, multiplication, division, addition and subtraction. While attempting construction, we take the highest level allowed for the operation. "eight times nine" would not be allowed as the input for multiplication, while "seventy-two" would be allowed. 
 
 There is additional complexity from the use of fractions. For example, we can say 32 as "four cubed halves". This use of "halves" or "thirds" makes division faster, but it can be ambiguous. With the term "one hundred twenty fifths", it's not clear whether this means 120/5 or 100/25, so this is not allowed. The code includes logic to check whether a fraction will have more than one interpretation, and should therefore by disallowed.
+
+### About the versions
+There are four versions of the English code:
+
+  - main. This was used in the initial video and the main version of the website.
+  - collaborative. This is open for anyone to make changes.
+  - ance. This is the adv-ance-d version used in the sequel video.
+  - serious. This is a more detailed but serious version that adds rounding, irrationals, huge numbers, and more.
